@@ -1,9 +1,15 @@
-const { default: VueRouter } = require("vue-router");
-
+/**
+ * Router
+ * 
+ * Esta librería implementa la navegación por rutas protegidas por autenticación,
+ * utilizando el enrutador de Vue, el manejador de estados Vuex y el gestor de usuarios de Meteor
+ * 
+ * @author sebolio
+ * @package seb-as
+ * 
+ */
 import Router from 'vue-router';
 import { Meteor } from 'meteor/meteor';
-// import { Accounts } from 'meteor/accounts-base';
-// import { createStore } from './store';
 import store from './store';
 
 const router = new Router({
@@ -18,8 +24,6 @@ const router = new Router({
 });
 
 router.beforeEach(async (to, from, next) => {
-    // const crear = await Accounts.createUser({username:'a@b.cl', email:'a@b.cl', password: 'popo', profile:{nombre:'euterpe'}});
-    // const login = await Meteor.loginWithPassword('a@b.cl', 'popo')
     const user = await Meteor.userId()
 
     //proceder a cerrar sesión si lo pide

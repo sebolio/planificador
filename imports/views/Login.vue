@@ -21,9 +21,11 @@ export default {
         this.$router.replace('/registro');
       },
       async login() {
+        //intentar iniciar sesión con el usuario y pass ingresados
         Meteor.loginWithPassword(this.usuario, this.pass, res=> {
           console.log('msg', res);
           if (res.error) {
+            //si la cuenta no existe, ofrecer crearla
             const crear = confirm('Login incorrecto, ¿quieres crear una cuenta?')
             this.crear();
           }

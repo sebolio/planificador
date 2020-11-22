@@ -30,10 +30,6 @@ import { Tareas } from '../api/tareas.js';
 
 export default {
   components: { Tarea },
-  data() {
-    return {
-    }
-  },
   computed: {
     user() { return this.$store.state.user }
   },
@@ -72,6 +68,5 @@ export default {
 </script>
 
 <style>
-  /* .pendientes li { background: red;} */
   .terminadas li input[type="text"] { background: gray; pointer-events: none;}
 </style>

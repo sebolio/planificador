@@ -1,6 +1,15 @@
+/**
+ * Seb-AS
+ * 
+ * Este es el componente principal utilizado por Vue para cargar el programa,
+ * desde aquí definimos los distintos componentes y plugins que se usarán globalmente.
+ * 
+ * @author sebolio
+ * @package seb-as
+ * 
+ */
 import { Meteor } from 'meteor/meteor';
 import store from './store'
-// import { sync } from 'vuex-router-sync';
 import Vue from 'vue';
  
 //componentes
@@ -15,10 +24,6 @@ Vue.use(VueMeteorTracker);
 import VueRouter from 'vue-router'
 import router from './router.js'
 Vue.use(VueRouter)
-
-//vuex
-// const store = createStore()
-// sync(store, router)
 
 //app
 Meteor.startup(() => {
