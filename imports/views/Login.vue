@@ -1,11 +1,18 @@
 <template>
   <div>
-    <input type="text" v-model="usuario" @keydown.enter="login"><br>
-    <input type="password" v-model="pass" @keydown.enter="login"><br>
+    <header>
+      <h1>Bienvenido a Seb-SA</h1>
+    </header>
+    <input type="text" v-model="usuario" @keydown.enter="login" placeholder="Nombre de usuario"><br>
+    <input type="password" v-model="pass" @keydown.enter="login" placeholder="Contraseña"><br>
     <button @click="login">Iniciar sesión</button>
     <button @click="crear">Crear cuenta</button>
   </div>
 </template>
+
+<style>
+
+</style>
 
 <script>
 import { Meteor } from 'meteor/meteor';
@@ -26,8 +33,9 @@ export default {
           console.log('msg', res);
           if (res.error) {
             //si la cuenta no existe, ofrecer crearla
-            const crear = confirm('Login incorrecto, ¿quieres crear una cuenta?')
-            this.crear();
+            if (confirm('Login incorrecto, ¿quieres crear una cuenta?')) {
+              this.crear();
+            }
           }
         });
       }
@@ -35,6 +43,3 @@ export default {
 }
 </script>
 
-<style>
-
-</style>

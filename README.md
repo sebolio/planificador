@@ -13,21 +13,24 @@ El servidor de Mongo viene integrado en el lanzador de `meteor` en el caso de le
 * Meteor
 * Docker
 
-### Lanzar como usuario
+## Lanzar como usuario
 ⛔ Se requiere tener [Docker Desktop](https://www.docker.com/products/docker-desktop) (si usas Windows, al instalarlo te dará instrucciones para instalar `WSL`)
 
 ⛔ En macOS se recomienda configurar Docker para usar `overlay2` en vez de `aufs`, para construir más rápido el contenedor de Meteor
-> Abrir Dashboard de Docker Desktop y en `Docker Engine` añadir el siguiente parámetro:
+> Abrir Dashboard de Docker Desktop y en ajustes de `Docker Engine`, añadir el siguiente parámetro:
 > ```json
 >  "storage-driver": "overlay2"
 >```
-Construir y levantar la aplicación :
+Construir y levantar la aplicación:
 ```sh
 docker-compose up
 ```
-
-### Lanzar como desarrollador
-⛔ Se requiere tener [meteor](https://www.meteor.com/install) (si usas Windows, necesitas el manejador de paquetes [chocolatey](https://chocolatey.org))
+Acceder por el navegador:
+> http://localhost
+## Lanzar como desarrollador
+⛔ Se requiere tener [meteor](https://www.meteor.com/install) (si usas Windows, necesitas instalarlo mediante [chocolatey](https://chocolatey.org))
 ```sh
 meteor run
 ```
+Acceder por el navegador:
+> http://localhost:3000

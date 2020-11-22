@@ -4,6 +4,7 @@
     <input type="text" v-model="usuario" placeholder="Usuario"><br>
     <input type="password" v-model="pass" placeholder="Password"><br>
     <button @click="crear">Crear cuenta</button>
+    <button @click="volver">Volver</button>
   </div>
 </template>
 
@@ -29,11 +30,15 @@ export default {
       //funcion para crear cuenta, invita a crear si los datos son inválidos
       async login() {
         Meteor.loginWithPassword(this.usuario, this.pass, res=> {
-        if (res && !res.error) {
-            this.$router.replace('/');
-        }
-      });
-    }
+          if (res && !res.error) {
+              this.$router.replace('/');
+          }
+        });
+      },
+
+      async volver() {
+        this.$router.replace('/login')
+      }
   }
 }
 </script>
