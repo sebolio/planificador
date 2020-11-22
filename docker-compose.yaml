@@ -1,54 +1,39 @@
-version: "3"
+#https://github.com/disney/meteor-base/blob/master/example/docker-compose.yml
+
+version: '3'
 networks:
   seb-as:
     external: false
-    driver: bridge
-services:
+    driver: bridge  
 
-  
-  db:
-    container_name: seb-as-db
-    networks:
-      - seb-as
-    image: mongo
-    restart: always
-    ports:
-      - "17017:27017" #dejo un puerto para entrar desde nosqlbooster
-    environment:
-      MONGO_INITDB_ROOT_USERNAME: nuncaAdivinarasEsteUsuario
-      MONGO_INITDB_ROOT_PASSWORD: passwordSuperSegura.,
- 
-  api:
-    container_name: seb-as-api
-    command: node server.js
+services:
+  app:
+    container_name: seb-as-app
     networks:
       - seb-as
     build:
       context: .
-      dockerfile: Dockerfile.purchase
+      dockerfile: Dockerfile
     ports:
-      - "5002:5002"
+      - '80:3000'
+    depends_on:
+      - mongo
     environment:
-      SHELL: /bin/bash
-      NODE_ENV: development
-  
-  # front:
-  #   container_name: ecom-frontend
-  #   entrypoint: ng serve --host 0.0.0.0 --poll 1
-  #   networks:
-  #     - seb-as
-  #   build:
-  #     context: .
-  #     dockerfile: Dockerfile.front
-  #   ports:
-  #     - "4200:4200"
-  #   environment:
-  #     SHELL: /bin/bash
-  #     NODE_ENV: development
-  #   volumes:
-  #     - ./ecom-frontend/src:/app/src:cached
-  #     - ./ecom-frontend/e2e:/app/e2e:cached
-  #     - ./ecom-frontend/tsconfig.json:/app/tsconfig.json
-  #     - ./ecom-frontend/tslint.json:/app/tslint.json
-  #     - ./ecom-frontend/package.json:/app/package.json
-      
+      ROOT_URL: ${APP_ROOT_URL:-http://localhost}
+      MONGO_URL: mongodb://mongo:27017/meteor
+      PORT: 3000
+
+  mongo:
+    container_name: seb-as-mongo
+    networks:
+      - seb-as
+    ports:
+      - 11017:27017 #permitir acceso desde el PC
+    image: mongo:latest
+    command:
+      - --storageEngine=wiredTiger
+    volumes:
+      - data:/data/db
+
+volumes:
+  data:

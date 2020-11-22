@@ -25,13 +25,10 @@ export default {
           console.log('msg', res);
           if (res.error) {
             const crear = confirm('Login incorrecto, ¿quieres crear una cuenta?')
-            console.log('crea?', crear);
+            this.crear();
           }
         });
       }
-    },
-    mounted() {
-      console.log('montao', );
     }
 }
 </script>

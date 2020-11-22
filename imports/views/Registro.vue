@@ -20,8 +20,7 @@ export default {
     methods: {
       //funcion para registrar al usuario, lo logea de inmediato
       async crear() {
-        await Accounts.createUser({username:this.usuario, password:this.pass, profile:{nombre:this.nombre}}, res=> {
-          console.log('sale', res);
+        Accounts.createUser({username:this.usuario, password:this.pass, profile:{nombre:this.nombre}}, res=> {
           if (res && res.error) alert('Error al crear: ' + res.reason)
           else this.login();
         });
@@ -30,11 +29,8 @@ export default {
       //funcion para crear cuenta, invita a crear si los datos son inválidos
       async login() {
         Meteor.loginWithPassword(this.usuario, this.pass, res=> {
-        if (res && res.error) {
-          //login inválido, preguntar si quiere registrarse
-          if (confirm('Login incorrecto, ¿quieres crear una cuenta?')) {
-            this.$router.replace('/registro');
-          }
+        if (res && !res.error) {
+            this.$router.replace('/');
         }
       });
     }
