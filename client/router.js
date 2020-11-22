@@ -10,9 +10,10 @@ const router = new Router({
     mode: 'history',
     base: '/',
     routes: [
-        { path: '/login', component: () => import('../imports/views/Login.vue') },
-        { path: '/registro', component: () => import('../imports/views/Registro.vue') },
-        { path: '/tareas', component: () => import('../imports/views/EditorTareas.vue') },
+        { path: '/registro', component: () => import('../imports/views/Registro') },
+        { path: '/tareas', component: () => import('../imports/views/EditorTareas') },
+        { path: '/login', component: () => import('../imports/views/Login') },
+        { path: '/registro', component: () => import('../imports/views/Registro') },
     ]
 });
 
@@ -21,25 +22,29 @@ router.beforeEach(async (to, from, next) => {
     // const login = await Meteor.loginWithPassword('a@b.cl', 'popo')
     const user = await Meteor.userId()
 
-    //si el usuario no está logeado y no está en la pantalla de login, llevarlo allá
-    if (to.path !== '/login') {
-        Tracker.autorun(function() {
-            let user = Meteor.user();
-            if (user !== undefined) {
-                //almacenar cuenta en el programa
-                store.commit('setUser', user);
-                console.log('quedo', store.state.user.username);
-                return next();
-                
-                //redirigir a tareas si estamos en /
-                if (to.path === '/') return next('/tareas');
-                if (to.path!=='/tareas') next('/tareas');
-
-            } else {
-                return next('/login');
-            }
-        });
+    //proceder a cerrar sesión si lo pide
+    if (to.path === '/logout') {
+        await Meteor.logout();
+        return next('/login');
     }
+
+    Tracker.autorun(function() {
+        let user = Meteor.user();
+        //hay usuario
+        if (user !== undefined && user !== null) {
+            //almacenar cuenta en el programa y llevar al home
+            store.commit('setUser', user);
+            if (to.path === '/' || to.path === '/login') return next('/tareas');
+            return next();
+        } else if (to.path !== '/login' && to.path !== '/registro') {
+            //redirigir al login si no esta logeado
+            return next('/login');
+        } else {
+            //no hay excepciones, dejarlo pasar
+            return next();
+        }
+    });
+
 
 });
 

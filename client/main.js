@@ -1,5 +1,5 @@
 import { Meteor } from 'meteor/meteor';
-import { store } from './store'
+import store from './store'
 // import { sync } from 'vuex-router-sync';
 import Vue from 'vue';
  
