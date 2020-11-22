@@ -24,11 +24,11 @@ El servidor de Mongo viene integrado en el lanzador de `meteor` en el caso de le
 >  "storage-driver": "overlay2"
 >```
 
-Construir y levantar la aplicación:
+Construir y levantar la aplicación (puede tardar hasta 5 minutos según tu máquina):
 ```sh
 docker-compose up
 ```
-Acceder por el navegador:
+Cuando veas mensajes de `seb-as-mongo` podrás acceder por el navegador:
 > http://localhost
 ## Lanzar como desarrollador
 ⛔ Se requiere tener [meteor](https://www.meteor.com/install) (si usas Windows, necesitas instalarlo mediante [chocolatey](https://chocolatey.org))
