@@ -12,6 +12,8 @@ RUN bash $SCRIPTS_FOLDER/build-app-npm-dependencies.sh
 COPY . $APP_SOURCE_FOLDER/
 
 ENV TOOL_NODE_FLAGS "--max-old-space-size=8000"
+ENV METEOR_PROFILE 100
+ENV METEOR_DEBUG_BUILD 1
 
 RUN bash $APP_SOURCE_FOLDER/docker-build-meteor.sh
 

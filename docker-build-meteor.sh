@@ -1,8 +1,8 @@
-#!/bin/bash
+# Reimplementacion de https://github.com/disney/meteor-base/blob/master/src/docker/build-meteor-bundle.sh
 
 set -o errexit
 
-printf "\n[-] **Building** Meteor application bundle into $APP_BUNDLE_FOLDER..\n\n"
+printf "\n[-] Building Meteor application bundle into $APP_BUNDLE_FOLDER..\n\n"
 
 mkdir --parents $APP_BUNDLE_FOLDER
 
