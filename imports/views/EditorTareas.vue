@@ -1,5 +1,6 @@
 <template>
   <div className="container">
+    user: {{user}}
     <header>
       <h1>Tareas <button class="crear" @click="crear">Crear</button></h1>
     </header>
@@ -18,15 +19,19 @@
 </template>
  
 <script>
-import Vue from "vue";
-import Tarea from "./Tarea.vue";
-import { Tareas } from "../api/tareas.js";
+import Vue from 'vue';
+import Tarea from '../components/Tarea.vue';
+import { Tareas } from '../api/tareas.js';
 
 export default {
   components: { Tarea },
   data() {
     return {
+      user: {}
     }
+  },
+  computed() {
+    this.user = this.$store.getUser()
   },
   methods: {
     marcar(id, terminada) {
