@@ -38,11 +38,11 @@ router.beforeEach(async (to, from, next) => {
         if (user !== undefined && user !== null) {
             //almacenar cuenta en el programa y llevar al home
             store.commit('setUser', user);
-            if (to.path === '/' || to.path === '/login') return next('/tareas');
+            if (to.path === '/' || to.path === '/login' || to.path === '/registro') return next('/tareas');
             return next();
         } else if (to.path !== '/login' && to.path !== '/registro') {
-            //redirigir al login si no esta logeado
-            return next('/login');
+            //redirigir al login si no esta logeado, pero esperar un poco para evitar parpadeo
+            setTimeout(_=> next('/login'), 800);
         } else {
             //no hay excepciones, dejarlo pasar
             return next();

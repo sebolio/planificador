@@ -1,4 +1,14 @@
 body {
   padding: 10px;
   font-family: sans-serif;
+  background: rgb(240, 241, 253);
 }
+
+.vs-card__text { width: 600px !important; }
+.vs-card__img { width: 550px !important; }
+.vs-card__img img { margin-left: -185px; width:800px; }
+.vs-card {
+   width: 700px !important;
+    max-width: fit-content !important;
+}
+input {border:1px solid #4989ff !important;}

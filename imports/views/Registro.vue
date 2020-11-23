@@ -1,10 +1,26 @@
 <template>
   <div>
-    <input type="text" v-model="nombre" placeholder="Nombre"><br>
-    <input type="text" v-model="usuario" placeholder="Usuario"><br>
-    <input type="password" v-model="pass" placeholder="Password"><br>
-    <button @click="crear">Crear cuenta</button>
-    <button @click="volver">Volver</button>
+    
+		<vs-row justify="center">
+			<vs-col w="6">
+				<vs-card type="3">
+					<template #title>
+						<h3>Crear nueva cuenta</h3><br>
+					</template>
+					<template #img>
+						<img src="https://seb.cl/wp-content/uploads/2020/11/planner.jpg" alt="">
+					</template>
+					<template #text>
+						<vs-input v-model="nombre" label-placeholder="Tu nombre"/><br>
+						<vs-input v-model="usuario" label-placeholder="Nombre de usuario"/><br>
+						<vs-input type="password" v-model="pass" label-placeholder="Contraseña"/><br>
+						<vs-button gradient @click="crear">Crear</vs-button>
+					</template>
+				</vs-card>
+			</vs-col>
+		</vs-row>
+
+  
   </div>
 </template>
 

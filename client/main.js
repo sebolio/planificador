@@ -21,9 +21,14 @@ import VueMeteorTracker from 'vue-meteor-tracker';
 Vue.use(VueMeteorTracker);
 
 //router
-import VueRouter from 'vue-router'
-import router from './router.js'
-Vue.use(VueRouter)
+import VueRouter from 'vue-router';
+import router from './router.js';
+Vue.use(VueRouter);
+
+//vuesax (ui)
+import Vuesax from 'vuesax';
+import 'vuesax/dist/vuesax.css';
+Vue.use(Vuesax);
 
 //app
 Meteor.startup(() => {
