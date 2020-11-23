@@ -2,15 +2,15 @@
 
 version: '3'
 networks:
-  seb-as:
+  planificador:
     external: false
     driver: bridge  
 
 services:
   app:
-    container_name: seb-as-app
+    container_name: planificador-app
     networks:
-      - seb-as
+      - planificador
     build:
       context: .
       dockerfile: Dockerfile
@@ -24,9 +24,9 @@ services:
       PORT: 3000
 
   mongo:
-    container_name: seb-as-mongo
+    container_name: planificador-mongo
     networks:
-      - seb-as
+      - planificador
     ports:
       - 11017:27017 #permitir acceso desde el PC
     image: mongo:latest

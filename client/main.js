@@ -1,11 +1,11 @@
 /**
- * Seb-AS
+ * Planificador
  * 
  * Este es el componente principal utilizado por Vue para cargar el programa,
  * desde aquí definimos los distintos componentes y plugins que se usarán globalmente.
  * 
  * @author sebolio
- * @package seb-as
+ * @package planificador
  * 
  */
 import { Meteor } from 'meteor/meteor';

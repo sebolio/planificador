@@ -5,7 +5,7 @@
  * desde los distintos rincones del programa. Es una versión simplificada del ejemplo de la documentación.
  * 
  * @author sebolio
- * @package seb-as
+ * @package planificador
  * 
  */
 import Vue from 'vue'

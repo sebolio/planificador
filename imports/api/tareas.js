@@ -5,7 +5,7 @@
  * utilizando la libería Mongo que es parte de Meteor.
  * 
  * @author sebolio
- * @package seb-as
+ * @package planificador
  * 
  */
 import { Mongo } from 'meteor/mongo';

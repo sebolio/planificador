@@ -5,16 +5,16 @@
 			<vs-col w="6">
 				<vs-card type="3">
 					<template #title>
-						<h3>¡Bienvenido a Seb-AS!</h3><br>
+						<h3>¡Bienvenido al Planificador!</h3><br>
 					</template>
 					<template #img>
 						<img src="https://seb.cl/wp-content/uploads/2020/11/planner.jpg" alt="">
 					</template>
-					<template #text>
-						<vs-input v-model="usuario" @keydown.enter="login" label-placeholder="Nombre de usuario"/><br>
-						<vs-input type="password" v-model="pass" @keydown.enter="login" label-placeholder="Contraseña"/><br>
-						<vs-button gradient @click="login">Iniciar sesión</vs-button>
-						<vs-button gradient warn @click="crear">Crear cuenta</vs-button>
+					<template #text class="center">
+						<vs-input v-model="usuario" @keydown.enter="login" placeholder="Nombre de usuario"/><br>
+						<vs-input type="password" v-model="pass" @keydown.enter="login" class="mt-20" placeholder="Contraseña"/><br>
+						<vs-button gradient @click="login" class="mt-20">Iniciar sesión</vs-button>
+						<vs-button gradient warn @click="crear" class="mt-20">Crear cuenta</vs-button>
 					</template>
 				</vs-card>
 			</vs-col>
@@ -25,8 +25,6 @@
 <style scoped>
 	@import 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css';
 	.crear { color:red; }
-	.x {padding-left: 200px;}
-	.vs-button { display:inline-block; margin-left: 0;}
 </style>
 
 <script>

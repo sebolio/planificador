@@ -4,11 +4,49 @@ body {
   background: rgb(240, 241, 253);
 }
 
-.vs-card__text { width: 600px !important; }
-.vs-card__img { width: 550px !important; }
-.vs-card__img img { margin-left: -185px; width:800px; }
+.vs-card__text { 
+  width: 600px !important;
+  text-align: center;
+}
+.vs-card__img { 
+  width: 300px !important;
+  max-width: 500px !important;
+  align-self: center;
+}
+.vs-card__img img { 
+  /* margin-left: -185px;  */
+  width: 600px !important;
+  max-width: 600px !important;
+  height:250px;
+}
 .vs-card {
    width: 700px !important;
-    max-width: fit-content !important;
+  max-width: fit-content !important;
 }
 input {border:1px solid #4989ff !important;}
+
+/*fix checkbox*/
+.vs-checkbox:checked ~ .vs-checkbox-mask .vs-icon-check span .line1:after {
+  margin-left: -3px;
+}
+
+.vs-input {
+  width: 300px !important;
+}
+
+.mt-10 { margin-top: 10px !important; }
+.mt-20 { margin-top: 20px !important; }
+.mt-30 { margin-top: 30px !important; }
+
+.center {
+  text-align: center;
+  justify-content: center;
+}
+
+.vs-input__label { top:0; }
+.vs-button { display:table-caption !important; margin-left: 0;}
+.vs-input-content, .vs-input-parent { display:inline-block !important; margin-left: 0;}
+.vs-checkbox-content {
+  display:inline-block !important;
+  transform: translateY(7px);
+}

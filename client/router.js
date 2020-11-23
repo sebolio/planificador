@@ -5,7 +5,7 @@
  * utilizando el enrutador de Vue, el manejador de estados Vuex y el gestor de usuarios de Meteor
  * 
  * @author sebolio
- * @package seb-as
+ * @package planificador
  * 
  */
 import Router from 'vue-router';

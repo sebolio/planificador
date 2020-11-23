@@ -5,16 +5,16 @@
 			<vs-col w="6">
 				<vs-card type="3">
 					<template #title>
-						<h3>Crear nueva cuenta</h3><br>
+						<h3>Nueva cuenta de Planificador</h3><br>
 					</template>
 					<template #img>
 						<img src="https://seb.cl/wp-content/uploads/2020/11/planner.jpg" alt="">
 					</template>
 					<template #text>
-						<vs-input v-model="nombre" label-placeholder="Tu nombre"/><br>
-						<vs-input v-model="usuario" label-placeholder="Nombre de usuario"/><br>
-						<vs-input type="password" v-model="pass" label-placeholder="Contraseña"/><br>
-						<vs-button gradient @click="crear">Crear</vs-button>
+						<vs-input v-model="nombre" placeholder="Tu nombre" class="mt-20"/><br>
+						<vs-input v-model="usuario" placeholder="Nombre de usuario" class="mt-10"/><br>
+						<vs-input type="password" v-model="pass" placeholder="Contraseña" class="mt-10"/><br>
+						<vs-button gradient @click="crear" class="mt-10">Crear cuenta</vs-button>
 					</template>
 				</vs-card>
 			</vs-col>
