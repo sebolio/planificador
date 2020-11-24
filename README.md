@@ -7,6 +7,8 @@ Para docker se utiliza una imagen no oficial pero muy popular, que se encuentra 
 
 El servidor de Mongo viene integrado en el lanzador de `meteor` en el caso de levantar como desarrollador, mientras que al levantar como usuario se utiliza una versión dockerizada.
 
+**Se puede ver funcionando en: http://planificador.seb.cl**
+
 ![screenshot](https://seb.cl/wp-content/uploads/2020/11/screenshot.png)
 ### Stack
 * VueJS
