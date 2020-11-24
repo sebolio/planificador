@@ -38,3 +38,8 @@ meteor run
 ```
 Acceder por el navegador:
 > http://localhost:3000
+## Hacer deploy a Meteor Galaxy
+Primero, crear archivo `settings.json` a partir del settings.json.example, poniendo los datos de la DB; luego, usar el siguiente comando usando el dominio generado en Galaxy.
+```
+DEPLOY_HOSTNAME=galaxy.meteor.com meteor deploy <APP>.meteorapp.com --settings settings.json
+```
